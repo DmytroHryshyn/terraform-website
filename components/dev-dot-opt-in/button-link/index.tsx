@@ -45,6 +45,7 @@ const ButtonLink = ({
 			rel={openInNewTab ? 'noreferrer noopener' : undefined}
 			target={openInNewTab ? '_blank' : '_self'}
 			onClick={onClick}
+			legacyBehavior
 		>
 			{/**
 			 * copied from components/standalone-link
@@ -54,7 +55,6 @@ const ButtonLink = ({
 			 * rather than the `<a>`.
 			 */}
 			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-
 			{hasLeadingIcon && icon}
 			{hasText ? text : null}
 			{hasTrailingIcon && icon}
