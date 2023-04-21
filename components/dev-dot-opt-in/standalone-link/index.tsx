@@ -30,6 +30,7 @@ const StandaloneLink = ({
 			onClick={onClick}
 			rel={rel}
 			target={target}
+			legacyBehavior
 		>
 			{/**
 			 * NOTE: this markup is valid. It's OK to have an `onClick` when there is
@@ -38,7 +39,6 @@ const StandaloneLink = ({
 			 * rather than the `<a>`.
 			 */}
 			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-
 			{iconPosition === 'leading' && icon}
 			<span className={classNames(s.text, textClassName)}>{text}</span>
 			{iconPosition === 'trailing' && icon}
