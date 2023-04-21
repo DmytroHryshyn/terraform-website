@@ -33,7 +33,7 @@ function IoCard({
 }: IoCardProps): React.ReactElement {
 	const LinkWrapper = ({ className, children }) =>
 		link.type === 'inbound' ? (
-			<Link href={link.url} className={className}>
+			<Link href={link.url} className={className} legacyBehavior>
 				{children}
 			</Link>
 		) : (

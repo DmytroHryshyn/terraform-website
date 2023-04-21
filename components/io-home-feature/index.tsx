@@ -61,7 +61,7 @@ function IoHomeFeatureWrap({
 	}
 	if (isInternalLink(href)) {
 		return (
-			<Link href={href} className={s.feature}>
+			<Link href={href} className={s.feature} legacyBehavior>
 				{children}
 			</Link>
 		);
