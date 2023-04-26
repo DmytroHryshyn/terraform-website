@@ -1,6 +1,6 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import s from './style.module.css'
 import Accordion from '@hashicorp/react-accordion'
-
 export default function CategorizedFeatureList({ heading, categories }) {
   return (
     <div className={s.categorizedFeatureList}>
