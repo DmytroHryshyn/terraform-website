@@ -1,5 +1,5 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import s from './style.module.css'
-
 export default function ProviderTable() {
   return (
     <table className={s.providerTable}>
@@ -20,9 +20,9 @@ export default function ProviderTable() {
             <img src="/img/docs/official-tier.png" alt="" />
           </td>
           <td>
-              <span>
-                Official providers are owned and maintained by HashiCorp.{' '}
-              </span>
+            <span>
+              Official providers are owned and maintained by HashiCorp.{' '}
+            </span>
           </td>
           <td>
             <code>
@@ -35,15 +35,15 @@ export default function ProviderTable() {
             <img src="/img/docs/partner-tier-new.png" alt="" />
           </td>
           <td>
-              <span>
-                Partner providers are written, maintained, validated and
-                published by third-party companies against their own APIs.
-                To earn a partner provider badge the partner must participate in the{' '}
-              </span>
+            <span>
+              Partner providers are written, maintained, validated and published
+              by third-party companies against their own APIs. To earn a partner
+              provider badge the partner must participate in the{' '}
+            </span>
             <a href="https://www.hashicorp.com/ecosystem/become-a-partner/">
-                <span>HashiCorp Technology Partner Program</span>
+              <span>HashiCorp Technology Partner Program</span>
             </a>
-              <span>.</span>
+            <span>.</span>
           </td>
           <td>
             <span>Third-party organization, e.g. </span>
