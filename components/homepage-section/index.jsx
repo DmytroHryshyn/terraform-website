@@ -1,6 +1,6 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import styles from './HomepageSection.module.css'
 import classNames from 'classnames'
-
 export default function HomepageSection({ title, theme, children, padTop }) {
   return (
     <section
