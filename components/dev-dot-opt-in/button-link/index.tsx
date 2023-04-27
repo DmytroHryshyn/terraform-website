@@ -1,8 +1,8 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { ButtonLinkProps } from './types'
 import s from './button-link.module.css'
-
 /**
  * _Note WIP Component_
  * this button link component should mimic the design system options
@@ -28,19 +28,16 @@ const ButtonLink = ({
   const hasLeadingIcon = hasIcon && iconPosition === 'leading'
   const hasTrailingIcon = hasIcon && iconPosition === 'trailing'
   const isIconOnly = hasIcon && !hasText
-
   if (!hasIcon && !hasText) {
     throw new Error(
       '`ButtonLink` must have either `text` or an `icon` with accessible labels.'
     )
   }
-
   if (isIconOnly && !hasLabel) {
     throw new Error(
       'Icon-only `ButtonLink`s require an accessible label. Either provide the `text` prop, or `ariaLabel`.'
     )
   }
-
   return (
     <Link href={href}>
       {/**
@@ -65,5 +62,4 @@ const ButtonLink = ({
     </Link>
   )
 }
-
 export default ButtonLink

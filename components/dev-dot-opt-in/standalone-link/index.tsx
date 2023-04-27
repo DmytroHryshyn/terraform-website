@@ -1,11 +1,10 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import { ReactElement } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { StandaloneLinkProps } from './types'
 import s from './standalone-link.module.css'
-
 /* Copied from devdot https://github.com/hashicorp/dev-portal/tree/main/src/components/standalone-link */
-
 const StandaloneLink = ({
   ariaLabel,
   className,
@@ -23,7 +22,6 @@ const StandaloneLink = ({
   const classes = classNames(s.root, s[`color-${color}`], s[size], className)
   const rel = openInNewTab ? 'noreferrer noopener' : undefined
   const target = openInNewTab ? '_blank' : '_self'
-
   return (
     <Link href={href}>
       {/**
@@ -48,6 +46,5 @@ const StandaloneLink = ({
     </Link>
   )
 }
-
 export type { StandaloneLinkProps }
 export default StandaloneLink

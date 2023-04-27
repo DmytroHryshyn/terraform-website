@@ -1,8 +1,8 @@
+import { useParams } from 'react-router-dom-v5-compat'
 /**
  * All props the native <button> HTML element accepts
  */
 type NativeButtonProps = JSX.IntrinsicElements['button']
-
 /**
  * The native button props the Button component accepts.
  */
@@ -21,7 +21,6 @@ type PickedNativeButtonProps = Pick<
   | 'onClick'
   | 'type'
 >
-
 /**
  * Additional custom props the Button component accepts.
  */
@@ -30,8 +29,7 @@ interface ButtonProps extends PickedNativeButtonProps {
    * The name of the color to apply styles to the button. The default value is
    * "primary".
    */
-  color?: 'primary' | 'secondary' | 'tertiary' | 'critical'
-
+  color?: 'primary' | 'secondary' | 'tertiary' | 'critical';
   /**
    * An icon from `@hashicorp/flight-icons` to render.
    *
@@ -50,38 +48,31 @@ interface ButtonProps extends PickedNativeButtonProps {
    * }
    * ```
    */
-  icon?: JSX.IntrinsicElements['svg']
-
+  icon?: JSX.IntrinsicElements['svg'];
   /**
    * Where the icon should be rendered within the button. 'leading' will render
    * the icon before `text`, 'trailing' will render the icon after `text`. The
    * default value is "leading".
    */
-  iconPosition?: 'leading' | 'trailing'
-
+  iconPosition?: 'leading' | 'trailing';
   /**
    * Whether or not the button should take up the full width of its container.
    * Buttons do not take up their container's full width by default.
    */
-  isFullWidth?: boolean
-
+  isFullWidth?: boolean;
   /**
    * The size of the button, which mainly affects font size and padding.
    * The default value is "medium".
    */
-  size?: 'small' | 'medium' | 'large'
-
+  size?: 'small' | 'medium' | 'large';
   /**
    * The text to render inside of the button. This is not required for icon-only
    * buttons.
    */
-  text?: string
+  text?: string;
 }
-
 export type { ButtonProps }
-
 type AnchorElementProps = JSX.IntrinsicElements['a']
-
 /**
  * The inherited props from Button.
  */
@@ -95,14 +86,12 @@ type PickedButtonProps = Pick<
   | 'text'
   | 'className'
 >
-
 /**
  * The additional custom props for ButtonLink.
  */
 interface ButtonLinkProps extends PickedButtonProps {
-  href: string
-  openInNewTab?: boolean
-  onClick?: AnchorElementProps['onClick']
+  href: string;
+  openInNewTab?: boolean;
+  onClick?: AnchorElementProps['onClick'];
 }
-
 export type { ButtonLinkProps }
