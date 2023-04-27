@@ -1,30 +1,29 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import * as React from 'react'
 import Image from 'next/image'
 import Button from '@hashicorp/react-button'
 import s from './style.module.css'
-
 interface IoUsecaseCustomerProps {
   media: {
-    src: string
-    width: string
-    height: string
-    alt: string
-  }
+    src: string,
+    width: string,
+    height: string,
+    alt: string,
+  };
   logo: {
-    src: string
-    width: string
-    height: string
-    alt: string
-  }
-  heading: string
-  description: string
+    src: string,
+    width: string,
+    height: string,
+    alt: string,
+  };
+  heading: string;
+  description: string;
   stats?: Array<{
-    value: string
-    key: string
-  }>
-  link: string
+    value: string,
+    key: string,
+  }>;
+  link: string;
 }
-
 export default function IoUsecaseCustomer({
   media,
   logo,
