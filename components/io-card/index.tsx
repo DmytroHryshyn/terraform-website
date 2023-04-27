@@ -22,13 +22,12 @@ export interface IoCardProps {
     children?: React.ReactNode;
 }
 function IoCard({ variant = 'light', products, link, inset = 'md', eyebrow, heading, description, children, }: IoCardProps): React.ReactElement {
-    const LinkWrapper = ({ className, children }) => link.type === 'inbound' ? (<Link href={link.url} className={className}>
+    const LinkWrapper = ({ className, children }) => link.type === 'inbound' ? (<Link href={link.url} className={className} legacyBehavior>
         {children}
       </Link>) : (<a className={className} href={link.url} target="_blank" rel="noopener noreferrer">
         {children}
       </a>);
-    return (
-        (<article className={classNames(s.card)}>
+    return ((<article className={classNames(s.card)}>
             <LinkWrapper className={classNames(s[variant], s[inset])}>
               {children ? (children) : (<>
                   {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
@@ -38,23 +37,21 @@ function IoCard({ variant = 'light', products, link, inset = 'md', eyebrow, head
               <footer className={s.footer}>
                 {products && (<ul className={s.products}>
                     {products.map(({ name }, index) => {
-                      const key = name.toLowerCase();
-                      const version = variant === 'dark' ? 'neutral' : 'color';
-                      return (
-                          // eslint-disable-next-line react/no-array-index-key
-                          (<li key={index}>
+                const key = name.toLowerCase();
+                const version = variant === 'dark' ? 'neutral' : 'color';
+                return (
+                // eslint-disable-next-line react/no-array-index-key
+                (<li key={index}>
                               <InlineSvg className={s.logo} src={productLogos[key][version]}/>
-                          </li>)
-                      );
-                  })}
+                          </li>));
+            })}
                   </ul>)}
                 <span className={s.linkType}>
                   {link.type === 'inbound' ? (<IconArrowRight24 />) : (<IconExternalLink24 />)}
                 </span>
               </footer>
             </LinkWrapper>
-        </article>)
-    );
+        </article>));
 }
 interface EyebrowProps {
     children: string;
