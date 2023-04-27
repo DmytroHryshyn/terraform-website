@@ -1,14 +1,12 @@
 import * as React from 'react'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import s from './style.module.css'
-
 interface IoUsecaseHeroProps {
-  eyebrow: string
-  heading: string
-  description: string
-  pattern?: string
+  eyebrow: string;
+  heading: string;
+  description: string;
+  pattern?: string;
 }
-
 export default function IoUsecaseHero({
   eyebrow,
   heading,

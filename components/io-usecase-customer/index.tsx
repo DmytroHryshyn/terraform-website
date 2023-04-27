@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom-v5-compat'
 import * as React from 'react'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Button from '@hashicorp/react-button'
 import s from './style.module.css'
 interface IoUsecaseCustomerProps {
