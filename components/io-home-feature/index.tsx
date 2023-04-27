@@ -3,18 +3,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IconArrowRight16 } from '@hashicorp/flight-icons/svg-react/arrow-right-16'
 import s from './style.module.css'
-
 export interface IoHomeFeatureProps {
-  isInternalLink: (link: string) => boolean
-  link?: string
+  isInternalLink: (link: string) => boolean;
+  link?: string;
   image: {
-    url: string
-    alt: string
-  }
-  heading: string
-  description: string
+    url: string,
+    alt: string,
+  };
+  heading: string;
+  description: string;
 }
-
 export default function IoHomeFeature({
   isInternalLink,
   link,
@@ -48,13 +46,11 @@ export default function IoHomeFeature({
     </IoHomeFeatureWrap>
   )
 }
-
 interface IoHomeFeatureWrapProps {
-  isInternalLink: (link: string) => boolean
-  href: string
-  children: React.ReactNode
+  isInternalLink: (link: string) => boolean;
+  href: string;
+  children: React.ReactNode;
 }
-
 function IoHomeFeatureWrap({
   isInternalLink,
   href,
@@ -63,15 +59,13 @@ function IoHomeFeatureWrap({
   if (!href) {
     return <div className={s.feature}>{children}</div>
   }
-
   if (isInternalLink(href)) {
     return (
-      <Link href={href}>
-        <a className={s.feature}>{children}</a>
+      <Link href={href} className={s.feature}>
+        {children}
       </Link>
     )
   }
-
   return (
     <a className={s.feature} href={href}>
       {children}
