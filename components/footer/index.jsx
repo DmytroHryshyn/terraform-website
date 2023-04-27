@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import s from './style.module.css'
 import Link from 'next/link'
 export default function Footer({ openConsentManager }) {
