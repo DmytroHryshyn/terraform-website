@@ -1,5 +1,5 @@
+import { useParams } from 'react-router-dom-v5-compat'
 import s from './style.module.css'
-
 export default function ContentSection({ theme, className, children }) {
   return (
     <div
