@@ -3,9 +3,7 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import { StandaloneLinkProps } from './types'
 import s from './standalone-link.module.css'
-
 /* Copied from devdot https://github.com/hashicorp/dev-portal/tree/main/src/components/standalone-link */
-
 const StandaloneLink = ({
   ariaLabel,
   className,
@@ -23,9 +21,16 @@ const StandaloneLink = ({
   const classes = classNames(s.root, s[`color-${color}`], s[size], className)
   const rel = openInNewTab ? 'noreferrer noopener' : undefined
   const target = openInNewTab ? '_blank' : '_self'
-
   return (
-    <Link href={href}>
+    <Link
+      href={href}
+      aria-label={ariaLabel}
+      className={classes}
+      download={download}
+      onClick={onClick}
+      rel={rel}
+      target={target}
+    >
       {/**
        * NOTE: this markup is valid. It's OK to have an `onClick` when there is
        * also an `href` present. The `jsx-a11y/anchor-is-valid` rule is not
@@ -33,21 +38,12 @@ const StandaloneLink = ({
        * rather than the `<a>`.
        */}
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a
-        aria-label={ariaLabel}
-        className={classes}
-        download={download}
-        onClick={onClick}
-        rel={rel}
-        target={target}
-      >
-        {iconPosition === 'leading' && icon}
-        <span className={classNames(s.text, textClassName)}>{text}</span>
-        {iconPosition === 'trailing' && icon}
-      </a>
+
+      {iconPosition === 'leading' && icon}
+      <span className={classNames(s.text, textClassName)}>{text}</span>
+      {iconPosition === 'trailing' && icon}
     </Link>
   )
 }
-
 export type { StandaloneLinkProps }
 export default StandaloneLink

@@ -2,7 +2,6 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import { ButtonLinkProps } from './types'
 import s from './button-link.module.css'
-
 /**
  * _Note WIP Component_
  * this button link component should mimic the design system options
@@ -28,21 +27,25 @@ const ButtonLink = ({
   const hasLeadingIcon = hasIcon && iconPosition === 'leading'
   const hasTrailingIcon = hasIcon && iconPosition === 'trailing'
   const isIconOnly = hasIcon && !hasText
-
   if (!hasIcon && !hasText) {
     throw new Error(
       '`ButtonLink` must have either `text` or an `icon` with accessible labels.'
     )
   }
-
   if (isIconOnly && !hasLabel) {
     throw new Error(
       'Icon-only `ButtonLink`s require an accessible label. Either provide the `text` prop, or `ariaLabel`.'
     )
   }
-
   return (
-    <Link href={href}>
+    <Link
+      href={href}
+      aria-label={ariaLabel}
+      className={classNames(s.root, s[size], s[color], className)}
+      rel={openInNewTab ? 'noreferrer noopener' : undefined}
+      target={openInNewTab ? '_blank' : '_self'}
+      onClick={onClick}
+    >
       {/**
        * copied from components/standalone-link
        * NOTE: this markup is valid. It's OK to have an `onClick` when there is
@@ -51,19 +54,11 @@ const ButtonLink = ({
        * rather than the `<a>`.
        */}
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a
-        aria-label={ariaLabel}
-        className={classNames(s.root, s[size], s[color], className)}
-        rel={openInNewTab ? 'noreferrer noopener' : undefined}
-        target={openInNewTab ? '_blank' : '_self'}
-        onClick={onClick}
-      >
-        {hasLeadingIcon && icon}
-        {hasText ? text : null}
-        {hasTrailingIcon && icon}
-      </a>
+
+      {hasLeadingIcon && icon}
+      {hasText ? text : null}
+      {hasTrailingIcon && icon}
     </Link>
   )
 }
-
 export default ButtonLink
