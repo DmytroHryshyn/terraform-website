@@ -1,6 +1,6 @@
+/*This file should be deleted. Please migrate its contents to appropriate files*/
 import './style.css'
 import '@hashicorp/platform-util/nprogress/style.css'
-
 import NProgress from '@hashicorp/platform-util/nprogress'
 import createConsentManager from '@hashicorp/react-consent-manager/loader'
 import localConsentManagerServices from 'lib/consent-manager-services'
@@ -19,26 +19,21 @@ import Error from './_error'
 import { productName } from '../data/metadata'
 import alertBannerData, { ALERT_BANNER_ACTIVE } from 'data/alert-banner'
 import StandardLayout from 'layouts/standard'
-
 NProgress({ Router })
 const { ConsentManager } = createConsentManager({
   preset: 'oss',
   otherServices: [...localConsentManagerServices],
 })
-
 initializeUTMParamsCapture()
 addGlobalLinkHandler((destinationUrl: string) => {
   track('Outbound link', {
     destination_url: destinationUrl,
   })
 })
-
 function App({ Component, pageProps, layoutData }) {
   usePageviewAnalytics()
   useAnchorLinkAnalytics()
-
   const Layout = Component.layout ?? StandardLayout
-
   return (
     <ErrorBoundary FallbackComponent={Error}>
       <HashiHead
@@ -60,16 +55,12 @@ function App({ Component, pageProps, layoutData }) {
     </ErrorBoundary>
   )
 }
-
 App.getInitialProps = async ({ Component, ctx }) => {
   const layoutQuery = Component.layout
     ? Component.layout?.rivetParams ?? null
     : StandardLayout.rivetParams
-
   const layoutData = layoutQuery ? await rivetQuery(layoutQuery) : null
-
   let pageProps = {}
-
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx)
   } else if (Component.isMDXComponent) {
@@ -79,8 +70,6 @@ App.getInitialProps = async ({ Component, ctx }) => {
       pageProps = await mdxLayoutComponent.getInitialProps(ctx)
     }
   }
-
   return { pageProps, layoutData }
 }
-
 export default App

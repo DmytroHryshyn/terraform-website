@@ -1,9 +1,7 @@
 import Link from 'next/link'
-import { useErrorPageAnalytics } from '@hashicorp/platform-analytics';
-
+import { useErrorPageAnalytics } from '@hashicorp/platform-analytics'
 export default function NotFound() {
-  useErrorPageAnalytics(404);
-
+  useErrorPageAnalytics(404)
   return (
     <div id="p-404" className="g-grid-container">
       <h1 className="g-type-display-1">Page Not Found</h1>
@@ -12,9 +10,7 @@ export default function NotFound() {
         for.
       </p>
       <p>
-        <Link href="/">
-          <a>Back to Home</a>
-        </Link>
+        <Link href="/">Back to Home</Link>
       </p>
     </div>
   )

@@ -1,23 +1,21 @@
 import * as React from 'react'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import ReactPlayer from 'react-player'
 import VisuallyHidden from '@reach/visually-hidden'
 import IoDialog from 'components/io-dialog'
 import PlayIcon from './play-icon'
 import s from './style.module.css'
-
 export interface IoHomeVideoCalloutProps {
-  youtubeId: string
-  thumbnail: string
-  heading: string
-  description: string
+  youtubeId: string;
+  thumbnail: string;
+  heading: string;
+  description: string;
   person?: {
-    avatar: string
-    name: string
-    description: string
-  }
+    avatar: string,
+    name: string,
+    description: string,
+  };
 }
-
 export default function IoVideoCallout({
   youtubeId,
   thumbnail,
